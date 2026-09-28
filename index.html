@@ -1,0 +1,2751 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkinCarely — Kenali Kulitmu, Rawat dengan Tepat</title>
+
+    <meta name="description" content="SkinCarely adalah website edukasi kesehatan kulit untuk remaja dan mahasiswa.">
+
+    <style>
+        /* ==============================
+           RESET & GLOBAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #542f40;
+            background: #fff7fa;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --pink-dark: #c94f7c;
+            --pink: #e8759d;
+            --pink-light: #ffdce9;
+            --pink-soft: #fff0f6;
+            --pink-pale: #fff8fb;
+            --white: #ffffff;
+            --text: #542f40;
+            --text-light: #80606d;
+            --shadow: 0 10px 30px rgba(201, 79, 124, 0.12);
+            --radius: 22px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: var(--pink-dark);
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin: 8px 0 12px;
+            color: #542f40;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+        }
+
+        .navbar {
+            width: min(1150px, 90%);
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.78);
+            backdrop-filter: blur(15px);
+            padding: 12px 22px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(201,79,124,0.08);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--pink-dark);
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 5px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: var(--pink-light);
+            color: var(--pink-dark);
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 150px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 85% 20%, #ffd0e2 0, transparent 25%),
+                radial-gradient(circle at 10% 80%, #ffe4ef 0, transparent 25%),
+                linear-gradient(135deg, #fff8fb, #ffeaf2);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text .small-title {
+            display: inline-block;
+            padding: 7px 15px;
+            background: white;
+            color: var(--pink-dark);
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-text h1 {
+            font-size: clamp(45px, 6vw, 72px);
+            line-height: 1.08;
+            color: #542f40;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: var(--pink-dark);
+        }
+
+        .hero-text .tagline {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--pink-dark);
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            max-width: 620px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            padding: 13px 23px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--pink-dark);
+            color: white;
+            box-shadow: 0 8px 20px rgba(201,79,124,0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #b9416e;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--pink-dark);
+            border: 1px solid #f5bfd3;
+        }
+
+        .btn-secondary:hover {
+            background: var(--pink-light);
+            transform: translateY(-3px);
+        }
+
+        /* Hero visual */
+
+        .hero-visual {
+            position: relative;
+            height: 470px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .beauty-circle {
+            width: 340px;
+            height: 340px;
+            background: linear-gradient(145deg, #ffd4e4, #fff);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(201,79,124,0.18);
+        }
+
+        .bottle {
+            position: absolute;
+            width: 125px;
+            height: 190px;
+            background: linear-gradient(145deg, #fff, #ffdce9);
+            border-radius: 20px 20px 30px 30px;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 15px 30px rgba(150,60,95,0.15);
+        }
+
+        .bottle::before {
+            content: "";
+            position: absolute;
+            width: 55px;
+            height: 35px;
+            background: #e8759d;
+            top: -30px;
+            left: 35px;
+            border-radius: 8px 8px 3px 3px;
+        }
+
+        .bottle::after {
+            content: "SKIN\nCARELY";
+            white-space: pre;
+            position: absolute;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--pink-dark);
+            top: 70px;
+            width: 100%;
+            left: 0;
+        }
+
+        .floating {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .flower {
+            width: 65px;
+            height: 65px;
+            font-size: 30px;
+        }
+
+        .f1 {
+            top: 30px;
+            left: 15px;
+        }
+
+        .f2 {
+            right: 15px;
+            top: 100px;
+            animation-delay: 1s;
+        }
+
+        .f3 {
+            bottom: 40px;
+            left: 40px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* ==============================
+           SKIN TYPES
+        ============================== */
+
+        .skin-section {
+            background: white;
+        }
+
+        .skin-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .skin-card {
+            background: var(--pink-pale);
+            border: 1px solid #f9d6e4;
+            padding: 25px 18px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skin-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+            background: white;
+        }
+
+        .skin-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: var(--pink-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+        }
+
+        .skin-card h3 {
+            margin-bottom: 8px;
+            color: var(--pink-dark);
+        }
+
+        .skin-card p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .quiz-button-area {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ==============================
+           BASIC SKINCARE
+        ============================== */
+
+        .basic-section {
+            background: var(--pink-soft);
+        }
+
+        .routine-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .routine-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .routine-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .routine-header .emoji {
+            font-size: 32px;
+        }
+
+        .routine-header h3 {
+            color: var(--pink-dark);
+            font-size: 24px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 12px;
+            background: #fff7fa;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .step:hover {
+            transform: translateX(5px);
+            background: var(--pink-light);
+        }
+
+        .step-number {
+            min-width: 34px;
+            height: 34px;
+            background: var(--pink-dark);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .step h4 {
+            color: #603345;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .routine-order {
+            text-align: center;
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 20px;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* ==============================
+           SUNSCREEN
+        ============================== */
+
+        .sunscreen-section {
+            background: white;
+        }
+
+        .sun-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .info-card {
+            background: var(--pink-pale);
+            padding: 28px;
+            border-radius: var(--radius);
+            border: 1px solid #f8d7e4;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+        }
+
+        .info-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .info-card h3 {
+            color: var(--pink-dark);
+            margin-bottom: 10px;
+        }
+
+        .info-card p,
+        .info-card li {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .info-card ul {
+            padding-left: 20px;
+        }
+
+        /* ==============================
+           INGREDIENTS
+        ============================== */
+
+        .ingredient-section {
+            background: linear-gradient(135deg, #fff1f6, #fff8fb);
+        }
+
+        .search-box {
+            max-width: 550px;
+            margin: 0 auto 35px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 16px 22px;
+            border-radius: 30px;
+            background: white;
+            box-shadow: var(--shadow);
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .ingredient-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .ingredient-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(201,79,124,0.07);
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-7px);
+            border-color: #f5bfd3;
+            box-shadow: var(--shadow);
+        }
+
+        .ingredient-card .lab {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .ingredient-card h3 {
+            color: var(--pink-dark);
+            margin-bottom: 8px;
+        }
+
+        .ingredient-card p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .note {
+            max-width: 800px;
+            margin: 35px auto 0;
+            text-align: center;
+            background: #fff;
+            padding: 18px;
+            border-radius: 15px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ==============================
+           SKIN PROBLEMS
+        ============================== */
+
+        .problem-section {
+            background: white;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .problem-card {
+            padding: 25px;
+            background: var(--pink-pale);
+            border-radius: var(--radius);
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid #f9d6e4;
+        }
+
+        .problem-card:hover {
+            background: var(--pink-light);
+            transform: scale(1.03);
+        }
+
+        .problem-card .emoji {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .problem-card h3 {
+            color: var(--pink-dark);
+        }
+
+        /* ==============================
+           MISTAKES
+        ============================== */
+
+        .mistake-section {
+            background: var(--pink-soft);
+        }
+
+        .mistake-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .mistake-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 17px;
+            box-shadow: 0 5px 20px rgba(201,79,124,0.06);
+            transition: 0.3s;
+        }
+
+        .mistake-card:hover {
+            transform: translateX(6px);
+        }
+
+        .mistake-icon {
+            width: 45px;
+            height: 45px;
+            background: #ffe0e9;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 21px;
+        }
+
+        /* ==============================
+           TIPS
+        ============================== */
+
+        .tips-section {
+            background: white;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .tip-card {
+            padding: 25px;
+            border-radius: var(--radius);
+            background: linear-gradient(145deg, #fff5f9, #fff);
+            border: 1px solid #f8d5e3;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .tip-card .number {
+            color: var(--pink);
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .tip-card h3 {
+            margin: 10px 0;
+            color: var(--pink-dark);
+            font-size: 17px;
+        }
+
+        .tip-card p {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            background: #b9426e;
+            color: white;
+            padding: 50px 0 25px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .footer-brand h2 {
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            opacity: 0.85;
+            max-width: 400px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 450px;
+            justify-content: flex-end;
+        }
+
+        .footer-links a {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* ==============================
+           MODAL
+        ============================== */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(67, 25, 43, 0.45);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 3000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: white;
+            width: min(600px, 100%);
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 25px;
+            padding: 35px;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border: none;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .modal-box h2 {
+            color: var(--pink-dark);
+            margin-bottom: 15px;
+        }
+
+        .quiz-question {
+            margin: 20px 0;
+        }
+
+        .quiz-question h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .quiz-option {
+            display: block;
+            padding: 12px 15px;
+            background: var(--pink-pale);
+            border: 1px solid #f6d3e0;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: var(--pink-light);
+        }
+
+        .quiz-option input {
+            margin-right: 8px;
+        }
+
+        .result {
+            display: none;
+            background: var(--pink-soft);
+            padding: 20px;
+            border-radius: 17px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result h3 {
+            color: var(--pink-dark);
+            font-size: 24px;
+        }
+
+        /* ==============================
+           BACK TO TOP
+        ============================== */
+
+        .back-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: var(--pink-dark);
+            color: white;
+            font-size: 20px;
+            display: none;
+            z-index: 900;
+            box-shadow: var(--shadow);
+        }
+
+        .back-top.show {
+            display: block;
+        }
+
+        /* ==============================
+           SCROLL ANIMATION
+        ============================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: 0.7s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: white;
+                border-radius: 20px;
+                padding: 15px;
+                display: none;
+                flex-direction: column;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+
+            .skin-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .ingredient-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .problem-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tips-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            section {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .hero {
+                padding-top: 125px;
+            }
+
+            .hero-text h1 {
+                font-size: 44px;
+            }
+
+            .hero-text .tagline {
+                font-size: 17px;
+            }
+
+            .beauty-circle {
+                width: 280px;
+                height: 280px;
+            }
+
+            .routine-wrapper,
+            .sun-grid,
+            .mistake-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skin-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ingredient-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+
+            .modal-box {
+                padding: 28px 20px;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .skin-grid,
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                height: 330px;
+            }
+
+            .beauty-circle {
+                width: 230px;
+                height: 230px;
+            }
+
+            .bottle {
+                width: 95px;
+                height: 150px;
+            }
+
+            .bottle::before {
+                width: 45px;
+                height: 27px;
+                left: 25px;
+                top: -24px;
+            }
+
+            .bottle::after {
+                top: 55px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================
+         NAVBAR
+    ============================== -->
+
+    <header id="header">
+        <nav class="navbar">
+
+            <a href="#home" class="logo">
+                🌸 SkinCarely
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#jenis-kulit">Jenis Kulit</a></li>
+                <li><a href="#basic">Basic Skincare</a></li>
+                <li><a href="#sunscreen">Sunscreen</a></li>
+                <li><a href="#kandungan">Kandungan</a></li>
+                <li><a href="#masalah">Masalah Kulit</a></li>
+                <li><a href="#tips">Tips</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- ==============================
+         HERO
+    ============================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container hero-content">
+
+            <div class="hero-text reveal">
+
+                <div class="small-title">
+                    🌷 HEALTHY SKIN EDUCATION
+                </div>
+
+                <h1>
+                    Kenali <span>Kulitmu</span>,<br>
+                    Rawat dengan Tepat.
+                </h1>
+
+                <div class="tagline">
+                    Healthy Skin Starts with Healthy Habits
+                </div>
+
+                <p>
+                    Temukan informasi sederhana tentang jenis kulit,
+                    basic skincare, sunscreen, kandungan skincare,
+                    masalah kulit, dan cara merawat kulit dengan tepat.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="btn btn-primary"
+                            onclick="openQuiz()">
+                        🔍 Kenali Jenis Kulitmu
+                    </button>
+
+                    <a href="#basic"
+                       class="btn btn-secondary">
+                        📖 Mulai Belajar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual reveal">
+
+                <div class="beauty-circle">
+
+                    <div class="bottle"></div>
+
+                </div>
+
+                <div class="floating flower f1">
+                    🌸
+                </div>
+
+                <div class="floating flower f2">
+                    ✨
+                </div>
+
+                <div class="floating flower f3">
+                    🫧
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         JENIS KULIT
+    ============================== -->
+
+    <section class="skin-section" id="jenis-kulit">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>SKIN TYPE</span>
+
+                <h2>Kenali Jenis Kulitmu 🔍</h2>
+
+                <p>
+                    Setiap jenis kulit memiliki kebutuhan yang berbeda.
+                    Kenali kondisi kulitmu agar dapat memilih perawatan
+                    yang sesuai.
+                </p>
+
+            </div>
+
+
+            <div class="skin-grid">
+
+                <div class="skin-card reveal">
+                    <div class="skin-icon">🌸</div>
+                    <h3>Normal</h3>
+                    <p>
+                        Kulit terasa seimbang, tidak terlalu berminyak
+                        dan tidak terlalu kering.
+                    </p>
+                </div>
+
+
+                <div class="skin-card reveal">
+                    <div class="skin-icon">💧</div>
+                    <h3>Kering</h3>
+                    <p>
+                        Kulit dapat terasa tertarik, kasar,
+                        dan membutuhkan hidrasi.
+                    </p>
+                </div>
+
+
+                <div class="skin-card reveal">
+                    <div class="skin-icon">✨</div>
+                    <h3>Berminyak</h3>
+                    <p>
+                        Produksi sebum lebih tinggi sehingga
+                        wajah mudah terlihat mengilap.
+                    </p>
+                </div>
+
+
+                <div class="skin-card reveal">
+                    <div class="skin-icon">🌷</div>
+                    <h3>Kombinasi</h3>
+                    <p>
+                        Area T-zone cenderung berminyak,
+                        sedangkan area lain lebih kering.
+                    </p>
+                </div>
+
+
+                <div class="skin-card reveal">
+                    <div class="skin-icon">🌺</div>
+                    <h3>Sensitif</h3>
+                    <p>
+                        Kulit mudah mengalami kemerahan,
+                        perih, atau iritasi.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="quiz-button-area reveal">
+
+                <button class="btn btn-primary"
+                        onclick="openQuiz()">
+
+                    ✨ Coba Kuis Jenis Kulit
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         BASIC SKINCARE
+    ============================== -->
+
+    <section class="basic-section" id="basic">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>SKINCARE ROUTINE</span>
+
+                <h2>Basic Skincare 🧴</h2>
+
+                <p>
+                    Rutinitas skincare tidak harus rumit.
+                    Mulailah dengan langkah dasar yang konsisten.
+                </p>
+
+            </div>
+
+
+            <div class="routine-wrapper">
+
+                <!-- PAGI -->
+
+                <div class="routine-card reveal">
+
+                    <div class="routine-header">
+
+                        <div class="emoji">☀️</div>
+
+                        <h3>Skincare Pagi</h3>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">1</div>
+
+                        <div>
+                            <h4>Cleanser</h4>
+                            <p>
+                                Membersihkan kotoran dan minyak
+                                pada wajah.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">2</div>
+
+                        <div>
+                            <h4>Moisturizer</h4>
+                            <p>
+                                Membantu menjaga kelembapan
+                                dan skin barrier.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">3</div>
+
+                        <div>
+                            <h4>Sunscreen</h4>
+                            <p>
+                                Membantu melindungi kulit
+                                dari paparan sinar UV.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="routine-order">
+
+                        Cleanser → Moisturizer → Sunscreen
+
+                    </div>
+
+                </div>
+
+
+                <!-- MALAM -->
+
+                <div class="routine-card reveal">
+
+                    <div class="routine-header">
+
+                        <div class="emoji">🌙</div>
+
+                        <h3>Skincare Malam</h3>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">1</div>
+
+                        <div>
+                            <h4>Cleanser</h4>
+                            <p>
+                                Membersihkan wajah dari kotoran
+                                dan sisa produk.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">2</div>
+
+                        <div>
+                            <h4>Treatment / Serum</h4>
+                            <p>
+                                Digunakan sesuai kebutuhan
+                                dan kondisi kulit.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">3</div>
+
+                        <div>
+                            <h4>Moisturizer</h4>
+                            <p>
+                                Membantu menjaga kelembapan
+                                kulit sepanjang malam.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="routine-order">
+
+                        Cleanser → Treatment → Moisturizer
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SUNSCREEN
+    ============================== -->
+
+    <section class="sunscreen-section" id="sunscreen">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>SUN PROTECTION</span>
+
+                <h2>Jangan Lupa Sunscreen ☀️</h2>
+
+                <p>
+                    Sunscreen merupakan salah satu bagian penting
+                    dalam rutinitas perawatan kulit pada siang hari.
+                </p>
+
+            </div>
+
+
+            <div class="sun-grid">
+
+                <div class="info-card reveal">
+
+                    <div class="info-icon">🌞</div>
+
+                    <h3>Apa itu Sunscreen?</h3>
+
+                    <p>
+                        Sunscreen adalah produk yang digunakan untuk
+                        membantu melindungi kulit dari paparan
+                        radiasi ultraviolet (UV).
+                    </p>
+
+                </div>
+
+
+                <div class="info-card reveal">
+
+                    <div class="info-icon">🛡️</div>
+
+                    <h3>Kenapa Penting?</h3>
+
+                    <ul>
+                        <li>Membantu melindungi kulit dari UV.</li>
+                        <li>Membantu mengurangi sunburn.</li>
+                        <li>Membantu mencegah kerusakan kulit akibat UV.</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="info-card reveal">
+
+                    <div class="info-icon">🔢</div>
+
+                    <h3>SPF & PA</h3>
+
+                    <p>
+                        SPF berkaitan dengan perlindungan terhadap
+                        UVB, sedangkan PA menunjukkan tingkat
+                        perlindungan terhadap UVA.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card reveal">
+
+                    <div class="info-icon">🧴</div>
+
+                    <h3>Cara Menggunakan</h3>
+
+                    <ul>
+                        <li>Gunakan sebagai langkah terakhir skincare pagi.</li>
+                        <li>Aplikasikan pada area kulit yang terpapar.</li>
+                        <li>Aplikasikan kembali sesuai kebutuhan.</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="info-card reveal">
+
+                    <div class="info-icon">🔄</div>
+
+                    <h3>Reapply</h3>
+
+                    <p>
+                        Pengaplikasian kembali dapat diperlukan,
+                        terutama setelah berkeringat, berenang,
+                        atau aktivitas yang menghilangkan produk.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card reveal">
+
+                    <div class="info-icon">⚠️</div>
+
+                    <h3>Kesalahan Umum</h3>
+
+                    <ul>
+                        <li>Menggunakan terlalu sedikit.</li>
+                        <li>Hanya menggunakan saat cuaca panas.</li>
+                        <li>Lupa mengaplikasikan kembali saat diperlukan.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         KANDUNGAN SKINCARE
+    ============================== -->
+
+    <section class="ingredient-section" id="kandungan">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>SKINCARE INGREDIENTS</span>
+
+                <h2>Kenali Kandungan Skincare 🧪</h2>
+
+                <p>
+                    Kenali fungsi umum beberapa kandungan yang sering
+                    ditemukan dalam produk perawatan kulit.
+                </p>
+
+            </div>
+
+
+            <div class="search-box reveal">
+
+                <input
+                    type="text"
+                    id="ingredientSearch"
+                    placeholder="🔍 Cari kandungan skincare..."
+                >
+
+            </div>
+
+
+            <div class="ingredient-grid" id="ingredientGrid">
+
+                <div class="ingredient-card reveal"
+                     data-name="niacinamide">
+
+                    <div class="lab">🧪</div>
+
+                    <h3>Niacinamide</h3>
+
+                    <p>
+                        Membantu mendukung skin barrier dan
+                        membantu mengontrol produksi sebum.
+                    </p>
+
+                </div>
+
+
+                <div class="ingredient-card reveal"
+                     data-name="salicylic acid">
+
+                    <div class="lab">🧴</div>
+
+                    <h3>Salicylic Acid</h3>
+
+                    <p>
+                        Membantu membersihkan pori-pori dan
+                        menangani kulit yang rentan berjerawat.
+                    </p>
+
+                </div>
+
+
+                <div class="ingredient-card reveal"
+                     data-name="hyaluronic acid">
+
+                    <div class="lab">💧</div>
+
+                    <h3>Hyaluronic Acid</h3>
+
+                    <p>
+                        Membantu menjaga hidrasi kulit.
+                    </p>
+
+                </div>
+
+
+                <div class="ingredient-card reveal"
+                     data-name="vitamin c">
+
+                    <div class="lab">🍊</div>
+
+                    <h3>Vitamin C</h3>
+
+                    <p>
+                        Berperan sebagai antioksidan dan membantu
+                        mencerahkan tampilan kulit.
+                    </p>
+
+                </div>
+
+
+                <div class="ingredient-card reveal"
+                     data-name="ceramide">
+
+                    <div class="lab">🧱</div>
+
+                    <h3>Ceramide</h3>
+
+                    <p>
+                        Membantu menjaga dan mendukung fungsi
+                        skin barrier.
+                    </p>
+
+                </div>
+
+
+                <div class="ingredient-card reveal"
+                     data-name="aha">
+
+                    <div class="lab">✨</div>
+
+                    <h3>AHA</h3>
+
+                    <p>
+                        Membantu proses eksfoliasi pada
+                        permukaan kulit.
+                    </p>
+
+                </div>
+
+
+                <div class="ingredient-card reveal"
+                     data-name="retinoid">
+
+                    <div class="lab">🌙</div>
+
+                    <h3>Retinoid</h3>
+
+                    <p>
+                        Membantu memperbaiki tekstur kulit dan
+                        menangani masalah jerawat.
+                    </p>
+
+                </div>
+
+
+                <div class="ingredient-card reveal"
+                     data-name="panthenol">
+
+                    <div class="lab">🌿</div>
+
+                    <h3>Panthenol</h3>
+
+                    <p>
+                        Membantu menjaga kelembapan dan memberikan
+                        efek menenangkan pada kulit.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="note reveal">
+
+                💡 <strong>Catatan:</strong>
+                Penggunaan bahan aktif perlu disesuaikan dengan
+                kondisi kulit dan petunjuk penggunaan produk.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         MASALAH KULIT
+    ============================== -->
+
+    <section class="problem-section" id="masalah">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>SKIN CONCERNS</span>
+
+                <h2>Kenali Masalah Kulitmu 😣</h2>
+
+                <p>
+                    Klik salah satu masalah kulit untuk mendapatkan
+                    informasi edukasi sederhana.
+                </p>
+
+            </div>
+
+
+            <div class="problem-grid">
+
+                <div class="problem-card reveal"
+                     onclick="openProblem('Jerawat')">
+
+                    <div class="emoji">😣</div>
+
+                    <h3>Jerawat</h3>
+
+                </div>
+
+
+                <div class="problem-card reveal"
+                     onclick="openProblem('Komedo')">
+
+                    <div class="emoji">🔘</div>
+
+                    <h3>Komedo</h3>
+
+                </div>
+
+
+                <div class="problem-card reveal"
+                     onclick="openProblem('Kulit Kusam')">
+
+                    <div class="emoji">✨</div>
+
+                    <h3>Kulit Kusam</h3>
+
+                </div>
+
+
+                <div class="problem-card reveal"
+                     onclick="openProblem('Kulit Kering')">
+
+                    <div class="emoji">💧</div>
+
+                    <h3>Kulit Kering</h3>
+
+                </div>
+
+
+                <div class="problem-card reveal"
+                     onclick="openProblem('Kulit Berminyak')">
+
+                    <div class="emoji">🌸</div>
+
+                    <h3>Kulit Berminyak</h3>
+
+                </div>
+
+
+                <div class="problem-card reveal"
+                     onclick="openProblem('Iritasi')">
+
+                    <div class="emoji">⚠️</div>
+
+                    <h3>Iritasi</h3>
+
+                </div>
+
+
+                <div class="problem-card reveal"
+                     onclick="openProblem('Hiperpigmentasi')">
+
+                    <div class="emoji">🤎</div>
+
+                    <h3>Hiperpigmentasi</h3>
+
+                </div>
+
+
+                <div class="problem-card reveal"
+                     onclick="openProblem('Skin Barrier')">
+
+                    <div class="emoji">🛡️</div>
+
+                    <h3>Skin Barrier</h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         KESALAHAN SKINCARE
+    ============================== -->
+
+    <section class="mistake-section">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>SKINCARE MISTAKES</span>
+
+                <h2>Kesalahan dalam Skincare ⚠️</h2>
+
+                <p>
+                    Beberapa kebiasaan sederhana dapat membuat
+                    perawatan kulit menjadi kurang optimal.
+                </p>
+
+            </div>
+
+
+            <div class="mistake-grid">
+
+                <div class="mistake-card reveal">
+                    <div class="mistake-icon">❌</div>
+                    <div>
+                        <strong>Terlalu sering mencuci wajah</strong>
+                        <p>Gunakan pembersih sesuai kebutuhan kulit.</p>
+                    </div>
+                </div>
+
+
+                <div class="mistake-card reveal">
+                    <div class="mistake-icon">☀️</div>
+                    <div>
+                        <strong>Tidak menggunakan sunscreen</strong>
+                        <p>Perlindungan UV merupakan bagian penting dari skincare pagi.</p>
+                    </div>
+                </div>
+
+
+                <div class="mistake-card reveal">
+                    <div class="mistake-icon">🧴</div>
+                    <div>
+                        <strong>Menggunakan terlalu banyak produk</strong>
+                        <p>Mulailah dengan rutinitas sederhana.</p>
+                    </div>
+                </div>
+
+
+                <div class="mistake-card reveal">
+                    <div class="mistake-icon">⚡</div>
+                    <div>
+                        <strong>Eksfoliasi berlebihan</strong>
+                        <p>Penggunaan berlebihan dapat membuat kulit tidak nyaman.</p>
+                    </div>
+                </div>
+
+
+                <div class="mistake-card reveal">
+                    <div class="mistake-icon">🤏</div>
+                    <div>
+                        <strong>Memencet jerawat</strong>
+                        <p>Kebiasaan ini dapat memperburuk kondisi kulit.</p>
+                    </div>
+                </div>
+
+
+                <div class="mistake-card reveal">
+                    <div class="mistake-icon">👥</div>
+                    <div>
+                        <strong>Mengikuti skincare orang lain</strong>
+                        <p>Setiap orang memiliki kondisi kulit yang berbeda.</p>
+                    </div>
+                </div>
+
+
+                <div class="mistake-card reveal">
+                    <div class="mistake-icon">🧪</div>
+                    <div>
+                        <strong>Tidak memperhatikan kandungan</strong>
+                        <p>Kenali kandungan sebelum menggunakan produk.</p>
+                    </div>
+                </div>
+
+
+                <div class="mistake-card reveal">
+                    <div class="mistake-icon">📖</div>
+                    <div>
+                        <strong>Tidak membaca petunjuk</strong>
+                        <p>Selalu ikuti petunjuk penggunaan produk.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         TIPS
+    ============================== -->
+
+    <section class="tips-section" id="tips">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>EDUCATION</span>
+
+                <h2>Tips & Edukasi 💗</h2>
+
+                <p>
+                    Baca informasi singkat seputar perawatan kulit.
+                </p>
+
+            </div>
+
+
+            <div class="tips-grid">
+
+                <div class="tip-card reveal"
+                     onclick="openTip(1)">
+
+                    <div class="number">01</div>
+
+                    <h3>
+                        Kenapa kulit tetap berminyak setelah menggunakan moisturizer?
+                    </h3>
+
+                    <p>
+                        Klik untuk membaca →
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card reveal"
+                     onclick="openTip(2)">
+
+                    <div class="number">02</div>
+
+                    <h3>
+                        Apakah kulit berjerawat tetap membutuhkan moisturizer?
+                    </h3>
+
+                    <p>
+                        Klik untuk membaca →
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card reveal"
+                     onclick="openTip(3)">
+
+                    <div class="number">03</div>
+
+                    <h3>
+                        Apa bedanya SPF 30 dan SPF 50?
+                    </h3>
+
+                    <p>
+                        Klik untuk membaca →
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card reveal"
+                     onclick="openTip(4)">
+
+                    <div class="number">04</div>
+
+                    <h3>
+                        Kenapa skincare bisa menyebabkan iritasi?
+                    </h3>
+
+                    <p>
+                        Klik untuk membaca →
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+
+                    <h2>🌸 SkinCarely</h2>
+
+                    <p>
+                        Kenali Kulitmu, Rawat dengan Tepat.
+                        Website edukasi kesehatan kulit untuk
+                        remaja dan mahasiswa.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="#home">Beranda</a>
+                    <a href="#jenis-kulit">Jenis Kulit</a>
+                    <a href="#basic">Basic Skincare</a>
+                    <a href="#sunscreen">Sunscreen</a>
+                    <a href="#kandungan">Kandungan</a>
+                    <a href="#masalah">Masalah Kulit</a>
+                    <a href="#tips">Tips</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                © 2026 SkinCarely. Educational Website.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==============================
+         QUIZ MODAL
+    ============================== -->
+
+    <div class="modal" id="quizModal">
+
+        <div class="modal-box">
+
+            <button class="close-modal"
+                    onclick="closeModal('quizModal')">
+                ×
+            </button>
+
+            <h2>✨ Kuis Jenis Kulit</h2>
+
+            <p>
+                Jawab pertanyaan berikut berdasarkan kondisi
+                kulitmu sehari-hari.
+            </p>
+
+
+            <div class="quiz-question">
+
+                <h3>
+                    1. Setelah mencuci wajah beberapa jam tanpa skincare,
+                    bagaimana kondisi kulitmu?
+                </h3>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q1" value="normal">
+                    Terasa nyaman dan seimbang
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q1" value="dry">
+                    Terasa kering dan tertarik
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q1" value="oily">
+                    Terlihat mengilap dan berminyak
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q1" value="combination">
+                    T-zone berminyak tetapi pipi terasa kering
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q1" value="sensitive">
+                    Mudah terasa perih atau kemerahan
+                </label>
+
+            </div>
+
+
+            <div class="quiz-question">
+
+                <h3>
+                    2. Bagaimana kondisi kulitmu setelah menggunakan
+                    produk skincare baru?
+                </h3>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q2" value="normal">
+                    Biasanya baik-baik saja
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q2" value="dry">
+                    Sering terasa lebih kering
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q2" value="oily">
+                    Cepat terlihat berminyak
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q2" value="combination">
+                    Beberapa area berbeda kondisinya
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q2" value="sensitive">
+                    Mudah merah atau terasa perih
+                </label>
+
+            </div>
+
+
+            <div class="quiz-question">
+
+                <h3>
+                    3. Bagaimana kondisi pori-pori dan minyak di wajah?
+                </h3>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q3" value="normal">
+                    Tidak terlalu terlihat
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q3" value="dry">
+                    Pori-pori cenderung kecil
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q3" value="oily">
+                    Pori-pori terlihat dan banyak minyak
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q3" value="combination">
+                    Terlihat terutama di area T-zone
+                </label>
+
+                <label class="quiz-option">
+                    <input type="radio" name="q3" value="sensitive">
+                    Kulit mudah kemerahan
+                </label>
+
+            </div>
+
+
+            <button class="btn btn-primary"
+                    onclick="calculateSkinType()">
+
+                Lihat Hasil ✨
+
+            </button>
+
+
+            <div class="result" id="quizResult">
+
+                <h3 id="resultTitle"></h3>
+
+                <p id="resultDescription"></p>
+
+                <small>
+                    Hasil kuis merupakan edukasi awal dan bukan
+                    diagnosis medis.
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         GENERAL MODAL
+    ============================== -->
+
+    <div class="modal" id="generalModal">
+
+        <div class="modal-box">
+
+            <button class="close-modal"
+                    onclick="closeModal('generalModal')">
+                ×
+            </button>
+
+            <h2 id="generalTitle"></h2>
+
+            <div id="generalContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BACK TO TOP -->
+
+    <button class="back-top" id="backTop">
+        ↑
+    </button>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <script>
+
+        /* ==============================
+           MOBILE MENU
+        ============================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function() {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", function() {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* ==============================
+           NAVBAR SCROLL
+        ============================== */
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 50) {
+
+                header.classList.add("scrolled");
+
+            } else {
+
+                header.classList.remove("scrolled");
+
+            }
+
+        });
+
+
+        /* ==============================
+           BACK TO TOP
+        ============================== */
+
+        const backTop = document.getElementById("backTop");
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 500) {
+
+                backTop.classList.add("show");
+
+            } else {
+
+                backTop.classList.remove("show");
+
+            }
+
+        });
+
+
+        backTop.addEventListener("click", function() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* ==============================
+           SCROLL REVEAL
+        ============================== */
+
+        const observer = new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        document.querySelectorAll(".reveal").forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+        /* ==============================
+           QUIZ
+        ============================== */
+
+        function openQuiz() {
+
+            document.getElementById("quizModal")
+                .classList.add("active");
+
+        }
+
+
+        function calculateSkinType() {
+
+            const questions = ["q1", "q2", "q3"];
+
+            const scores = {
+                normal: 0,
+                dry: 0,
+                oily: 0,
+                combination: 0,
+                sensitive: 0
+            };
+
+
+            let answered = true;
+
+
+            questions.forEach(question => {
+
+                const answer =
+                    document.querySelector(
+                        `input[name="${question}"]:checked`
+                    );
+
+
+                if (!answer) {
+
+                    answered = false;
+
+                } else {
+
+                    scores[answer.value]++;
+
+                }
+
+            });
+
+
+            if (!answered) {
+
+                alert("Silakan jawab semua pertanyaan terlebih dahulu.");
+
+                return;
+
+            }
+
+
+            let result = "normal";
+
+            let highest = 0;
+
+
+            for (const type in scores) {
+
+                if (scores[type] > highest) {
+
+                    highest = scores[type];
+
+                    result = type;
+
+                }
+
+            }
+
+
+            const names = {
+
+                normal: "Kulit Normal 🌸",
+
+                dry: "Kulit Kering 💧",
+
+                oily: "Kulit Berminyak ✨",
+
+                combination: "Kulit Kombinasi 🌷",
+
+                sensitive: "Kulit Sensitif 🌺"
+
+            };
+
+
+            const descriptions = {
+
+                normal:
+                    "Kulitmu cenderung memiliki kondisi yang seimbang. Tetap pertahankan rutinitas skincare sederhana dan konsisten.",
+
+                dry:
+                    "Kulitmu cenderung membutuhkan perhatian lebih pada kelembapan. Gunakan produk yang membantu menjaga hidrasi kulit.",
+
+                oily:
+                    "Kulitmu cenderung menghasilkan lebih banyak sebum. Gunakan pembersih yang lembut dan tetap gunakan moisturizer.",
+
+                combination:
+                    "Kulitmu memiliki kondisi yang berbeda pada beberapa area wajah. Perawatan dapat disesuaikan dengan kebutuhan masing-masing area.",
+
+                sensitive:
+                    "Kulitmu cenderung mudah bereaksi. Pilih produk yang lembut dan perkenalkan produk baru secara bertahap."
+
+            };
+
+
+            document.getElementById("resultTitle")
+                .textContent = names[result];
+
+
+            document.getElementById("resultDescription")
+                .textContent = descriptions[result];
+
+
+            document.getElementById("quizResult")
+                .style.display = "block";
+
+        }
+
+
+        /* ==============================
+           CLOSE MODAL
+        ============================== */
+
+        function closeModal(id) {
+
+            document.getElementById(id)
+                .classList.remove("active");
+
+        }
+
+
+        document.querySelectorAll(".modal").forEach(modal => {
+
+            modal.addEventListener("click", function(event) {
+
+                if (event.target === modal) {
+
+                    modal.classList.remove("active");
+
+                }
+
+            });
+
+        });
+
+
+        /* ==============================
+           INGREDIENT SEARCH
+        ============================== */
+
+        const searchInput =
+            document.getElementById("ingredientSearch");
+
+
+        searchInput.addEventListener("input", function() {
+
+            const keyword =
+                this.value.toLowerCase().trim();
+
+
+            document
+                .querySelectorAll(".ingredient-card")
+                .forEach(card => {
+
+                    const name =
+                        card.dataset.name.toLowerCase();
+
+                    if (name.includes(keyword)) {
+
+                        card.style.display = "block";
+
+                    } else {
+
+                        card.style.display = "none";
+
+                    }
+
+                });
+
+        });
+
+
+        /* ==============================
+           SKIN PROBLEM MODAL
+        ============================== */
+
+        const problemData = {
+
+            "Jerawat": {
+                title: "😣 Jerawat",
+                content:
+                    "<p><strong>Penyebab umum:</strong> produksi sebum berlebih, penyumbatan pori, dan faktor lainnya.</p><br>" +
+                    "<p><strong>Perawatan umum:</strong> gunakan produk yang sesuai dengan kondisi kulit dan hindari kebiasaan memencet jerawat.</p><br>" +
+                    "<p><strong>Hindari:</strong> penggunaan produk secara berlebihan atau mencampurkan banyak bahan aktif tanpa pertimbangan.</p>"
+            },
+
+            "Komedo": {
+                title: "🔘 Komedo",
+                content:
+                    "<p><strong>Penyebab umum:</strong> penumpukan minyak dan sel kulit pada pori.</p><br>" +
+                    "<p><strong>Perawatan umum:</strong> menjaga kebersihan kulit dan menggunakan produk yang sesuai.</p><br>" +
+                    "<p><strong>Hindari:</strong> memencet komedo secara kasar.</p>"
+            },
+
+            "Kulit Kusam": {
+                title: "✨ Kulit Kusam",
+                content:
+                    "<p><strong>Penyebab umum:</strong> kurangnya perawatan, paparan lingkungan, dan penumpukan sel kulit.</p><br>" +
+                    "<p><strong>Perawatan umum:</strong> gunakan skincare dasar dan sunscreen secara konsisten.</p>"
+            },
+
+            "Kulit Kering": {
+                title: "💧 Kulit Kering",
+                content:
+                    "<p><strong>Ciri:</strong> kulit terasa tertarik, kasar, atau kurang nyaman.</p><br>" +
+                    "<p><strong>Perawatan umum:</strong> gunakan cleanser yang lembut dan moisturizer untuk membantu menjaga kelembapan.</p>"
+            },
+
+            "Kulit Berminyak": {
+                title: "🌸 Kulit Berminyak",
+                content:
+                    "<p><strong>Ciri:</strong> wajah mudah mengilap karena produksi sebum yang tinggi.</p><br>" +
+                    "<p><strong>Perawatan umum:</strong> gunakan cleanser yang lembut dan jangan melewatkan moisturizer.</p>"
+            },
+
+            "Iritasi": {
+                title: "⚠️ Iritasi",
+                content:
+                    "<p><strong>Ciri:</strong> kulit dapat terasa perih, panas, gatal, atau kemerahan.</p><br>" +
+                    "<p><strong>Perawatan umum:</strong> hentikan sementara produk yang diduga menyebabkan iritasi dan gunakan perawatan yang lembut.</p><br>" +
+                    "<p>Jika keluhan berat atau menetap, pertimbangkan berkonsultasi dengan tenaga kesehatan.</p>"
+            },
+
+            "Hiperpigmentasi": {
+                title: "🤎 Hiperpigmentasi",
+                content:
+                    "<p>Hiperpigmentasi merupakan kondisi ketika area kulit terlihat lebih gelap dibandingkan area sekitarnya.</p><br>" +
+                    "<p><strong>Perawatan umum:</strong> perlindungan terhadap paparan UV dan penggunaan skincare yang sesuai.</p>"
+            },
+
+            "Skin Barrier": {
+                title: "🛡️ Skin Barrier",
+                content:
+                    "<p>Skin barrier merupakan lapisan pelindung kulit yang membantu mempertahankan kelembapan dan melindungi kulit dari lingkungan.</p><br>" +
+                    "<p><strong>Perawatan umum:</strong> gunakan cleanser yang lembut, moisturizer, dan hindari penggunaan bahan aktif secara berlebihan.</p>"
+            }
+
+        };
+
+
+        function openProblem(problem) {
+
+            const data = problemData[problem];
+
+            document.getElementById("generalTitle")
+                .textContent = data.title;
+
+            document.getElementById("generalContent")
+                .innerHTML = data.content;
+
+            document.getElementById("generalModal")
+                .classList.add("active");
+
+        }
+
+
+        /* ==============================
+           TIPS MODAL
+        ============================== */
+
+        const tips = {
+
+            1: {
+                title:
+                    "Kenapa kulit tetap berminyak setelah menggunakan moisturizer?",
+                content:
+                    "<p>Moisturizer tidak selalu membuat kulit menjadi lebih berminyak. Kulit berminyak tetap membutuhkan kelembapan. Pilih tekstur yang sesuai dengan kondisi kulit dan gunakan secukupnya.</p>"
+            },
+
+            2: {
+                title:
+                    "Apakah kulit berjerawat tetap membutuhkan moisturizer?",
+                content:
+                    "<p>Ya. Kulit berjerawat tetap membutuhkan kelembapan. Moisturizer dapat membantu menjaga kondisi skin barrier. Pilih produk yang sesuai dengan kondisi kulit dan petunjuk penggunaan.</p>"
+            },
+
+            3: {
+                title:
+                    "Apa bedanya SPF 30 dan SPF 50?",
+                content:
+                    "<p>SPF merupakan ukuran yang berkaitan dengan perlindungan terhadap UVB. Angka SPF menunjukkan tingkat perlindungan yang diberikan dalam kondisi pengujian tertentu. Penggunaan sunscreen yang tepat dan cukup tetap penting.</p>"
+            },
+
+            4: {
+                title:
+                    "Kenapa skincare bisa menyebabkan iritasi?",
+                content:
+                    "<p>Iritasi dapat terjadi karena kulit tidak cocok dengan suatu bahan, penggunaan bahan aktif yang terlalu sering, atau penggunaan beberapa produk yang terlalu banyak secara bersamaan. Perkenalkan produk baru secara bertahap.</p>"
+            }
+
+        };
+
+
+        function openTip(number) {
+
+            const data = tips[number];
+
+            document.getElementById("generalTitle")
+                .textContent = data.title;
+
+            document.getElementById("generalContent")
+                .innerHTML = data.content;
+
+            document.getElementById("generalModal")
+                .classList.add("active");
+
+        }
+
+
+        /* ==============================
+           ESCAPE KEY
+        ============================== */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                document.querySelectorAll(".modal")
+                    .forEach(modal => {
+
+                        modal.classList.remove("active");
+
+                    });
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
