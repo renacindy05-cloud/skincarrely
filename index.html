@@ -298,7 +298,7 @@
         }
 
         .bottle::after {
-            content: "SKIN\nCARELY";
+            content: "SKIN\A CARELY";
             white-space: pre;
             position: absolute;
             text-align: center;
@@ -382,16 +382,20 @@
             background: white;
         }
 
-        .skin-icon {
-            width: 65px;
-            height: 65px;
+        .skin-photo {
+            width: 100px;
+            height: 100px;
             margin: 0 auto 15px;
             border-radius: 50%;
-            background: var(--pink-light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 28px;
+            object-fit: cover;
+            display: block;
+            border: 4px solid var(--pink-light);
+            box-shadow: 0 6px 16px rgba(201, 79, 124, 0.15);
+            transition: 0.3s;
+        }
+
+        .skin-card:hover .skin-photo {
+            transform: scale(1.06);
         }
 
         .skin-card h3 {
@@ -832,6 +836,26 @@
             }
         }
 
+        .video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+            padding: 12px 22px;
+            background: var(--pink-dark);
+            color: #fff;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 8px 20px rgba(201, 79, 124, 0.25);
+            transition: 0.3s;
+        }
+
+        .video-link:hover {
+            background: #b9416e;
+            transform: translateY(-3px);
+        }
+
         .close-modal {
             position: absolute;
             top: 15px;
@@ -1233,7 +1257,7 @@
             <div class="skin-grid">
 
                 <div class="skin-card reveal">
-                    <div class="skin-icon">🌸</div>
+                    <img class="skin-photo" src="images/kulit-normal.jpg" alt="Kulit normal" loading="lazy">
                     <h3>Normal</h3>
                     <p>
                         Kulit terasa seimbang, tidak terlalu berminyak
@@ -1243,7 +1267,7 @@
 
 
                 <div class="skin-card reveal">
-                    <div class="skin-icon">💧</div>
+                    <img class="skin-photo" src="images/kulit-kering.jpg" alt="Kulit kering" loading="lazy">
                     <h3>Kering</h3>
                     <p>
                         Kulit dapat terasa tertarik, kasar,
@@ -1253,7 +1277,7 @@
 
 
                 <div class="skin-card reveal">
-                    <div class="skin-icon">✨</div>
+                    <img class="skin-photo" src="images/kulit-berminyak.jpg" alt="Kulit berminyak" loading="lazy">
                     <h3>Berminyak</h3>
                     <p>
                         Produksi sebum lebih tinggi sehingga
@@ -1263,7 +1287,7 @@
 
 
                 <div class="skin-card reveal">
-                    <div class="skin-icon">🌷</div>
+                    <img class="skin-photo" src="images/kulit-kombinasi.jpg" alt="Kulit kombinasi" loading="lazy">
                     <h3>Kombinasi</h3>
                     <p>
                         Area T-zone cenderung berminyak,
@@ -1273,7 +1297,7 @@
 
 
                 <div class="skin-card reveal">
-                    <div class="skin-icon">🌺</div>
+                    <img class="skin-photo" src="images/kulit-sensitif.jpg" alt="Kulit sensitif" loading="lazy">
                     <h3>Sensitif</h3>
                     <p>
                         Kulit mudah mengalami kemerahan,
@@ -2683,28 +2707,32 @@
                 title:
                     "Kenapa kulit tetap berminyak setelah menggunakan moisturizer?",
                 content:
-                    "<p>Moisturizer tidak selalu membuat kulit menjadi lebih berminyak. Kulit berminyak tetap membutuhkan kelembapan. Pilih tekstur yang sesuai dengan kondisi kulit dan gunakan secukupnya.</p>"
+                    "<p>Moisturizer tidak selalu membuat kulit menjadi lebih berminyak. Kulit berminyak tetap membutuhkan kelembapan. Pilih tekstur yang sesuai dengan kondisi kulit dan gunakan secukupnya.</p>",
+                video: "https://youtube.com/shorts/dlILT7H-QcM?si=_S100btc3U1MsETz"
             },
 
             2: {
                 title:
                     "Apakah kulit berjerawat tetap membutuhkan moisturizer?",
                 content:
-                    "<p>Ya. Kulit berjerawat tetap membutuhkan kelembapan. Moisturizer dapat membantu menjaga kondisi skin barrier. Pilih produk yang sesuai dengan kondisi kulit dan petunjuk penggunaan.</p>"
+                    "<p>Ya. Kulit berjerawat tetap membutuhkan kelembapan. Moisturizer dapat membantu menjaga kondisi skin barrier. Pilih produk yang sesuai dengan kondisi kulit dan petunjuk penggunaan.</p>",
+                video: "https://youtube.com/shorts/6rSuPfcA9tQ?si=KZBYNWskHQH6GXz-"
             },
 
             3: {
                 title:
                     "Apa bedanya SPF 30 dan SPF 50?",
                 content:
-                    "<p>SPF merupakan ukuran yang berkaitan dengan perlindungan terhadap UVB. Angka SPF menunjukkan tingkat perlindungan yang diberikan dalam kondisi pengujian tertentu. Penggunaan sunscreen yang tepat dan cukup tetap penting.</p>"
+                    "<p>SPF merupakan ukuran yang berkaitan dengan perlindungan terhadap UVB. Angka SPF menunjukkan tingkat perlindungan yang diberikan dalam kondisi pengujian tertentu. Penggunaan sunscreen yang tepat dan cukup tetap penting.</p>",
+                video: "https://youtube.com/watch?v=5iXGoMYzuwE&si=pIjWMIxIQfVgT9r9"
             },
 
             4: {
                 title:
                     "Kenapa skincare bisa menyebabkan iritasi?",
                 content:
-                    "<p>Iritasi dapat terjadi karena kulit tidak cocok dengan suatu bahan, penggunaan bahan aktif yang terlalu sering, atau penggunaan beberapa produk yang terlalu banyak secara bersamaan. Perkenalkan produk baru secara bertahap.</p>"
+                    "<p>Iritasi dapat terjadi karena kulit tidak cocok dengan suatu bahan, penggunaan bahan aktif yang terlalu sering, atau penggunaan beberapa produk yang terlalu banyak secara bersamaan. Perkenalkan produk baru secara bertahap.</p>",
+                video: "https://youtube.com/shorts/JzSuW6-iFQQ?si=joUf5TmM-DEa-TSt"
             }
 
         };
@@ -2717,8 +2745,19 @@
             document.getElementById("generalTitle")
                 .textContent = data.title;
 
+            let html = data.content;
+
+            if (data.video) {
+
+                html +=
+                    '<a class="video-link" href="' + data.video +
+                    '" target="_blank" rel="noopener noreferrer">' +
+                    '▶️ Klik untuk melihat video</a>';
+
+            }
+
             document.getElementById("generalContent")
-                .innerHTML = data.content;
+                .innerHTML = html;
 
             document.getElementById("generalModal")
                 .classList.add("active");
